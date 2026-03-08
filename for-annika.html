@@ -1,0 +1,920 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>For Annika 🌻</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400;1,600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+:root {
+  --cream: #fdf8f0;
+  --yellow: #f5c842;
+  --yellow-deep: #e6a800;
+  --yellow-pale: #fff8d6;
+  --green: #5a8a3c;
+  --green-light: #7ab84e;
+  --brown: #6b4226;
+  --text: #3a2a1a;
+  --muted: #9a7a5a;
+  --white: #ffffff;
+  --sky1: #b8dff5;
+  --sky2: #fde9c4;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--cream);
+  color: var(--text);
+  overflow-x: hidden;
+}
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  text-align: center;
+  padding: 40px 24px 100px;
+  background: linear-gradient(180deg, var(--sky1) 0%, var(--sky2) 55%, var(--cream) 100%);
+  overflow: hidden;
+}
+
+/* clouds */
+.cloud {
+  position: absolute;
+  background: white;
+  border-radius: 50px;
+  opacity: 0.82;
+  animation: drift linear infinite;
+}
+.cloud::before,.cloud::after { content:''; position:absolute; background:white; border-radius:50%; }
+.cl1 { width:100px; height:30px; top:8%; animation-duration:38s; animation-delay:0s; }
+.cl1::before { width:46px; height:46px; top:-24px; left:16px; }
+.cl1::after { width:34px; height:34px; top:-18px; left:46px; }
+.cl2 { width:75px; height:22px; top:18%; animation-duration:52s; animation-delay:-18s; opacity:0.6; }
+.cl2::before { width:34px; height:34px; top:-18px; left:12px; }
+.cl2::after { width:26px; height:26px; top:-14px; left:32px; }
+.cl3 { width:120px; height:34px; top:5%; animation-duration:44s; animation-delay:-28s; opacity:0.7; }
+.cl3::before { width:54px; height:54px; top:-28px; left:22px; }
+.cl3::after { width:40px; height:40px; top:-20px; left:60px; }
+.cl4 { width:88px; height:26px; top:28%; animation-duration:60s; animation-delay:-10s; opacity:0.5; }
+.cl4::before { width:40px; height:40px; top:-22px; left:14px; }
+.cl4::after { width:30px; height:30px; top:-16px; left:38px; }
+@keyframes drift { from{left:-160px} to{left:110%} }
+
+.hero-tag {
+  font-size: 0.75rem;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin-bottom: 16px;
+  font-weight: 500;
+}
+.hero h1 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 9vw, 6rem);
+  font-weight: 600;
+  color: var(--text);
+  line-height: 1.05;
+  animation: fadeUp 1s ease both;
+}
+.hero h1 em {
+  font-style: italic;
+  color: var(--yellow-deep);
+}
+.hero-sub {
+  margin-top: 16px;
+  font-size: 1rem;
+  color: var(--muted);
+  font-weight: 300;
+  animation: fadeUp 1s 0.2s ease both;
+  max-width: 360px;
+  line-height: 1.6;
+}
+.scroll-hint {
+  position: absolute;
+  bottom: 36px;
+  left: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 6px;
+  color: var(--muted);
+  font-size: 0.78rem;
+  letter-spacing: 0.08em;
+  animation: fadeUp 1s 0.6s ease both;
+}
+.scroll-arrow { animation: bob 1.8s ease-in-out infinite; font-size: 1.2rem; }
+@keyframes bob { 0%,100%{transform:translateY(0)} 50%{transform:translateY(6px)} }
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+/* ── SECTION TITLE ── */
+.section-title {
+  text-align: center;
+  padding: 60px 24px 10px;
+}
+.section-title h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  font-style: italic;
+  color: var(--text);
+}
+.section-title p {
+  color: var(--muted);
+  font-size: 0.88rem;
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+/* ── PUZZLES ── */
+.puzzles {
+  padding: 20px 20px 60px;
+  max-width: 780px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.puzzle-card {
+  background: white;
+  border-radius: 20px;
+  border: 1.5px solid #f0e8d0;
+  overflow: hidden;
+  box-shadow: 0 2px 20px #0000000a;
+  transition: box-shadow 0.3s;
+}
+.puzzle-card:hover { box-shadow: 0 6px 32px #00000012; }
+
+.puzzle-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 18px 22px;
+  cursor: pointer;
+  user-select: none;
+}
+.puzzle-num {
+  width: 38px; height: 38px;
+  border-radius: 50%;
+  background: var(--yellow-pale);
+  border: 2px solid var(--yellow);
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--yellow-deep);
+  flex-shrink: 0;
+}
+.puzzle-header-text {
+  flex: 1;
+}
+.puzzle-header-text h3 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--text);
+}
+.puzzle-header-text p {
+  font-size: 0.8rem;
+  color: var(--muted);
+  margin-top: 2px;
+  font-weight: 300;
+}
+.puzzle-lock {
+  font-size: 1.3rem;
+  transition: transform 0.3s;
+}
+.puzzle-card.solved .puzzle-lock { filter: none; }
+
+.puzzle-body {
+  padding: 0 22px 20px;
+  display: none;
+}
+.puzzle-body.open { display: block; }
+
+.puzzle-q {
+  font-size: 0.95rem;
+  color: var(--text);
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding: 12px 16px;
+  background: #fdf8f0;
+  border-radius: 10px;
+  border-left: 3px solid var(--yellow);
+}
+
+.puzzle-input-row {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+.puzzle-input {
+  flex: 1;
+  border: 1.5px solid #e8dcc8;
+  border-radius: 10px;
+  padding: 10px 14px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  color: var(--text);
+  background: white;
+  outline: none;
+  transition: border-color 0.2s;
+}
+.puzzle-input:focus { border-color: var(--yellow); }
+.puzzle-input.wrong { border-color: #e07070; animation: shake 0.4s ease; }
+.puzzle-input.right { border-color: var(--green-light); background: #f0fae8; }
+@keyframes shake { 0%,100%{transform:translateX(0)} 25%{transform:translateX(-6px)} 75%{transform:translateX(6px)} }
+
+.puzzle-submit {
+  background: var(--yellow);
+  color: var(--brown);
+  border: none;
+  border-radius: 10px;
+  padding: 10px 18px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.15s;
+  white-space: nowrap;
+}
+.puzzle-submit:hover { background: var(--yellow-deep); color: white; transform: scale(1.04); }
+
+.puzzle-hint {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 8px;
+  font-style: italic;
+  min-height: 18px;
+}
+
+/* Reveal */
+.reveal {
+  margin-top: 16px;
+  background: linear-gradient(135deg, #fffbe8, #fff3c4);
+  border: 1.5px solid var(--yellow);
+  border-radius: 14px;
+  padding: 16px 18px;
+  display: none;
+  animation: popIn 0.5s cubic-bezier(.17,.67,.35,1.3) both;
+}
+.reveal.show { display: block; }
+@keyframes popIn { from{opacity:0;transform:scale(0.85)} to{opacity:1;transform:scale(1)} }
+
+.reveal-emoji { font-size: 1.8rem; margin-bottom: 6px; }
+.reveal-text {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: var(--text);
+  line-height: 1.5;
+}
+.reveal-from {
+  font-size: 0.78rem;
+  color: var(--muted);
+  margin-top: 6px;
+  font-weight: 300;
+}
+
+/* solved card */
+.puzzle-card.solved {
+  border-color: var(--yellow);
+  background: linear-gradient(135deg, #fffdf5, #fff9e6);
+}
+.puzzle-card.solved .puzzle-num {
+  background: var(--yellow);
+  color: white;
+  border-color: var(--yellow-deep);
+}
+
+/* ── GARDEN ── */
+.garden-section {
+  padding: 20px 0 0;
+}
+
+.sky-strip {
+  width: 100%;
+  height: 140px;
+  background: linear-gradient(180deg, #c2e8ff 0%, #fde9c4 70%, #fdf8f0 100%);
+  position: relative;
+  overflow: hidden;
+}
+/* clouds in garden sky - reuse same animation */
+
+.garden-title {
+  text-align: center;
+  padding: 0 20px 10px;
+  background: var(--cream);
+}
+.garden-title h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-style: italic;
+  color: var(--text);
+}
+.garden-title p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  font-weight: 300;
+  margin-top: 4px;
+}
+
+.garden-wrap {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+.ground {
+  width: 100%;
+  min-height: 360px;
+  background: linear-gradient(180deg, #c8e87a 0%, #9cc83a 12%, #7ab030 16%);
+  border-radius: 20px 20px 0 0;
+  position: relative;
+  cursor: crosshair;
+  overflow: visible;
+  box-shadow: 0 -3px 16px #0001;
+}
+.soil-layer {
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 64px;
+  background: linear-gradient(180deg, #c8a06a 0%, #9a6830 100%);
+  border-radius: 0 0 20px 20px;
+}
+
+.plant-hint {
+  position: absolute;
+  top: 50%; left: 50%;
+  transform: translate(-50%, -60%);
+  text-align: center;
+  pointer-events: none;
+  transition: opacity 0.5s;
+}
+.plant-hint .hint-icon { font-size: 2.2rem; animation: bob2 2s ease-in-out infinite; }
+@keyframes bob2 { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+.plant-hint p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: #7a9a3a;
+  font-size: 0.95rem;
+  margin-top: 4px;
+}
+
+/* Sunflower */
+.sunflower {
+  position: absolute;
+  bottom: 60px;
+  transform-origin: bottom center;
+  animation: growUp 0.8s cubic-bezier(.17,.67,.35,1.3) forwards;
+  cursor: pointer;
+}
+@keyframes growUp {
+  from { transform: scaleY(0); opacity: 0; }
+  to   { transform: scaleY(1); opacity: 1; }
+}
+
+.sf-stem {
+  width: 5px;
+  background: linear-gradient(180deg, #5a9a2a, #3a7010);
+  border-radius: 5px;
+  margin: 0 auto;
+  position: relative;
+}
+.sf-leaf {
+  position: absolute;
+  width: 16px; height: 10px;
+  background: #6ab04c;
+  border-radius: 50% 0 50% 0;
+}
+.sf-leaf-l { left: -14px; top: 28%; transform: rotate(-35deg); }
+.sf-leaf-r { right: -14px; top: 55%; transform: rotate(35deg) scaleX(-1); }
+
+.sf-head {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+.sf-petal {
+  position: absolute;
+  background: var(--yellow);
+  border-radius: 50% 50% 30% 30%;
+  transform-origin: center bottom;
+  opacity: 0.95;
+}
+.sf-center {
+  border-radius: 50%;
+  background: radial-gradient(circle at 38% 38%, #8B5020, #5a2800);
+  z-index: 2;
+  box-shadow: inset 0 3px 8px #0003;
+  position: relative;
+}
+.sf-center::after {
+  content: '';
+  position: absolute;
+  inset: 15%;
+  border-radius: 50%;
+  background: radial-gradient(circle, #a06030 0%, transparent 70%);
+  opacity: 0.4;
+}
+
+.sf-note { display: none; }
+
+/* floaty */
+.floaty {
+  position: fixed;
+  font-size: 1.6rem;
+  pointer-events: none;
+  animation: floatUp 1.2s ease-out forwards;
+  z-index: 999;
+}
+@keyframes floatUp {
+  from{opacity:1;transform:translateY(0) scale(1)}
+  to{opacity:0;transform:translateY(-90px) scale(0.3)}
+}
+
+.garden-counter {
+  text-align: center;
+  padding: 10px 0 0;
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  color: var(--muted);
+  font-size: 1rem;
+}
+
+/* ── FINAL ── */
+.final-section {
+  text-align: center;
+  padding: 40px 24px 80px;
+  background: linear-gradient(180deg, var(--cream) 0%, #fff9e6 100%);
+}
+.final-section h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 4vw, 2.8rem);
+  font-style: italic;
+  color: var(--text);
+  margin-bottom: 10px;
+}
+.final-section p {
+  color: var(--muted);
+  font-size: 0.9rem;
+  font-weight: 300;
+  line-height: 1.7;
+  max-width: 380px;
+  margin: 0 auto;
+}
+.final-from {
+  margin-top: 24px;
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  color: var(--yellow-deep);
+}
+
+/* Rick modal */
+.rick-overlay {
+  position: fixed; inset: 0;
+  background: #000a;
+  z-index: 200;
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.rick-overlay.show { display: flex; }
+.rick-box {
+  background: white;
+  border-radius: 20px;
+  padding: 32px 36px;
+  text-align: center;
+  max-width: 340px;
+  animation: popIn 0.5s cubic-bezier(.17,.67,.35,1.3) both;
+  position: relative;
+}
+.rick-box h2 {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.6rem;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+.rick-box p { color: var(--muted); font-size: 0.88rem; line-height: 1.6; margin-bottom: 16px; }
+.rick-btn {
+  background: var(--yellow);
+  border: none;
+  border-radius: 30px;
+  padding: 10px 26px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.88rem;
+  font-weight: 500;
+  color: var(--brown);
+  cursor: pointer;
+  transition: transform 0.15s, background 0.2s;
+}
+.rick-btn:hover { transform: scale(1.05); background: var(--yellow-deep); color: white; }
+.rick-gif { font-size: 3rem; margin-bottom: 10px; }
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="cloud cl1" style="left:-140px"></div>
+  <div class="cloud cl2" style="left:20%"></div>
+  <div class="cloud cl3" style="left:65%"></div>
+  <div class="cloud cl4" style="left:45%"></div>
+
+  <div class="hero-tag">a little something from Afia</div>
+  <h1>For <em>Annika</em> 🌻</h1>
+  <p class="hero-sub">here's a fun trivia for you — answer each one to unlock a little surprise. you know these. probably.</p>
+  <div class="scroll-hint">
+    <span class="scroll-arrow">↓</span>
+    <span>scroll to begin</span>
+  </div>
+</section>
+
+<!-- PUZZLES -->
+<div class="section-title">
+  <h2>A little trivia for you</h2>
+  <p>answer each one to unlock a surprise ✨</p>
+</div>
+
+<div class="puzzles" id="puzzles">
+
+  <!-- 1 -->
+  <div class="puzzle-card" id="card-0">
+    <div class="puzzle-header" onclick="toggleCard(0)">
+      <div class="puzzle-num">1</div>
+      <div class="puzzle-header-text">
+        <h3>The Metro Critic</h3>
+        <p>Only a true connoisseur would know this</p>
+      </div>
+      <div class="puzzle-lock">🔒</div>
+    </div>
+    <div class="puzzle-body" id="body-0">
+      <div class="puzzle-q">Reuben takes metro ratings very seriously. Which station did he grace with a solid 4 out of 10?</div>
+      <div class="puzzle-input-row">
+        <input class="puzzle-input" id="inp-0" placeholder="station name..." onkeydown="if(event.key==='Enter')check(0)">
+        <button class="puzzle-submit" onclick="check(0)">submit</button>
+      </div>
+      <div class="puzzle-hint" id="hint-0"></div>
+      <div class="reveal" id="reveal-0">
+        <div class="reveal-emoji">🌻</div>
+        <div class="reveal-text">You are always there when I need to talk to someone, you are an amazing friend.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 2 -->
+  <div class="puzzle-card" id="card-1">
+    <div class="puzzle-header" onclick="toggleCard(1)">
+      <div class="puzzle-num">2</div>
+      <div class="puzzle-header-text">
+        <h3>Class of 2030</h3>
+        <p>A graduation 6 years in the making</p>
+      </div>
+      <div class="puzzle-lock">🔒</div>
+    </div>
+    <div class="puzzle-body" id="body-1">
+      <div class="puzzle-q">Among your group, one person is on a very long academic journey and will be graduating in 2030. Who is this patient soul?</div>
+      <div class="puzzle-input-row">
+        <input class="puzzle-input" id="inp-1" placeholder="first name..." onkeydown="if(event.key==='Enter')check(1)">
+        <button class="puzzle-submit" onclick="check(1)">submit</button>
+      </div>
+      <div class="puzzle-hint" id="hint-1"></div>
+      <div class="reveal" id="reveal-1">
+        <div class="reveal-emoji">🌻</div>
+        <div class="reveal-text">I love to hear you yap bro, zoom calls are so much more interesting and THE VIBES.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 -->
+  <div class="puzzle-card" id="card-2">
+    <div class="puzzle-header" onclick="toggleCard(2)">
+      <div class="puzzle-num">3</div>
+      <div class="puzzle-header-text">
+        <h3>The Property Mogul</h3>
+        <p>Someone in your circle is suspiciously well-housed</p>
+      </div>
+      <div class="puzzle-lock">🔒</div>
+    </div>
+    <div class="puzzle-body" id="body-2">
+      <div class="puzzle-q">One person in your group somehow owns 8 houses. Eight. Who is this mysterious real estate empire?</div>
+      <div class="puzzle-input-row">
+        <input class="puzzle-input" id="inp-2" placeholder="first name..." onkeydown="if(event.key==='Enter')check(2)">
+        <button class="puzzle-submit" onclick="check(2)">submit</button>
+      </div>
+      <div class="puzzle-hint" id="hint-2"></div>
+      <div class="reveal" id="reveal-2">
+        <div class="reveal-emoji">🌻</div>
+        <div class="reveal-text">You are literally comfort personified. LITERALLY.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 4 -->
+  <div class="puzzle-card" id="card-3">
+    <div class="puzzle-header" onclick="toggleCard(3)">
+      <div class="puzzle-num">4</div>
+      <div class="puzzle-header-text">
+        <h3>Read My Mind</h3>
+        <p>good luck with this one 😇</p>
+      </div>
+      <div class="puzzle-lock">🔒</div>
+    </div>
+    <div class="puzzle-body" id="body-3">
+      <div class="puzzle-q">What colour am I thinking of? (I promise this is going somewhere 😇)</div>
+      <div class="puzzle-input-row">
+        <input class="puzzle-input" id="inp-3" placeholder="colour..." onkeydown="if(event.key==='Enter')check(3)">
+        <button class="puzzle-submit" onclick="check(3)">submit</button>
+      </div>
+      <div class="puzzle-hint" id="hint-3"></div>
+      <div class="reveal" id="reveal-3">
+        <div class="reveal-emoji">🌻</div>
+        <div class="reveal-text">ANNIKA THIS IS JUST A RANDOM TEXT LOL HAPPY WOMEN'S DAY 🌻</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 5 -->
+  <div class="puzzle-card" id="card-4">
+    <div class="puzzle-header" onclick="toggleCard(4)">
+      <div class="puzzle-num">5</div>
+      <div class="puzzle-header-text">
+        <h3>The COVID Anthem</h3>
+        <p>We were all trolled by this one</p>
+      </div>
+      <div class="puzzle-lock">🔒</div>
+    </div>
+    <div class="puzzle-body" id="body-4">
+      <div class="puzzle-q">During the depths of COVID, one song was used to troll absolutely everyone. What was it called?</div>
+      <div class="puzzle-input-row">
+        <input class="puzzle-input" id="inp-4" placeholder="song name..." onkeydown="if(event.key==='Enter')check(4)">
+        <button class="puzzle-submit" onclick="check(4)">submit</button>
+      </div>
+      <div class="puzzle-hint" id="hint-4"></div>
+      <div class="reveal" id="reveal-4">
+        <div class="reveal-emoji">🌻</div>
+        <div class="reveal-text">I miss your amazing hugs more than words can say.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 6 -->
+  <div class="puzzle-card" id="card-5">
+    <div class="puzzle-header" onclick="toggleCard(5)">
+      <div class="puzzle-num">6</div>
+      <div class="puzzle-header-text">
+        <h3>Your Best Colour</h3>
+        <p>I have very strong opinions about this</p>
+      </div>
+      <div class="puzzle-lock">🔒</div>
+    </div>
+    <div class="puzzle-body" id="body-5">
+      <div class="puzzle-q">I have very strong opinions about what colour looks incredible on you. What is it?</div>
+      <div class="puzzle-input-row">
+        <input class="puzzle-input" id="inp-5" placeholder="colour..." onkeydown="if(event.key==='Enter')check(5)">
+        <button class="puzzle-submit" onclick="check(5)">submit</button>
+      </div>
+      <div class="puzzle-hint" id="hint-5"></div>
+      <div class="reveal" id="reveal-5">
+        <div class="reveal-emoji">🌻</div>
+        <div class="reveal-text">You look amazing in green bro, always loved seeing you wear it.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 7 — Rick Roll -->
+  <div class="puzzle-card" id="card-6">
+    <div class="puzzle-header" onclick="toggleCard(6)">
+      <div class="puzzle-num">7</div>
+      <div class="puzzle-header-text">
+        <h3>One Last One</h3>
+        <p>almost there, you're doing so well</p>
+      </div>
+      <div class="puzzle-lock">🔒</div>
+    </div>
+    <div class="puzzle-body" id="body-6">
+      <div class="puzzle-q">Okay last one, totally unrelated to anything — what is 2 + 2? 🙂</div>
+      <div class="puzzle-input-row">
+        <input class="puzzle-input" id="inp-6" placeholder="the answer..." onkeydown="if(event.key==='Enter')check(6)">
+        <button class="puzzle-submit" onclick="check(6)">submit</button>
+      </div>
+      <div class="puzzle-hint" id="hint-6"></div>
+      <div class="reveal" id="reveal-6">
+        <div class="reveal-emoji">🌻</div>
+        <div class="reveal-text">You always make me feel like I belong — and calls feel so much better with you there.</div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- GARDEN SKY -->
+<div class="garden-section">
+  <div class="sky-strip">
+    <div class="cloud cl1" style="left:-140px; top:10%"></div>
+    <div class="cloud cl2" style="left:25%; top:20%"></div>
+    <div class="cloud cl3" style="left:60%; top:8%"></div>
+  </div>
+
+  <div class="garden-title">
+    <h2>Your Sunflower Garden 🌻</h2>
+    <p>Click anywhere in the garden to plant a sunflower 🌻</p>
+  </div>
+
+  <div class="garden-wrap">
+    <div class="ground" id="garden" onclick="plantSunflower(event)">
+      <div class="soil-layer"></div>
+      <div class="plant-hint" id="plant-hint">
+        <div class="hint-icon">🌱</div>
+        <p>click to plant your first sunflower</p>
+      </div>
+    </div>
+    <div class="garden-counter" id="garden-counter">Your garden has <strong>0</strong> sunflowers</div>
+  </div>
+</div>
+
+<!-- FINAL -->
+<section class="final-section" id="final">
+  <h2>That's all 7. 🌻</h2>
+  <div class="final-from">with so much love, Afia 💛</div>
+</section>
+
+<!-- Rick Roll Modal -->
+<div class="rick-overlay" id="rick-overlay">
+  <div class="rick-box">
+    <div class="rick-gif">🕺</div>
+    <h2>You just got Rickrolled.</h2>
+    <p>Never gonna give you up, never gonna let you down, never gonna run around and desert you. 🎵<br><br></p>
+    <button class="rick-btn" onclick="closeRick()">okay fine 😂</button>
+  </div>
+</div>
+
+<script>
+const answers = [
+  ['jaddaf'],
+  ['shravan'],
+  ['srinidhi'],
+  ['purple'],
+  ['astronaut in the ocean', 'astronaut in ocean'],
+  ['green'],
+  ['4', 'four'],
+];
+
+const wrongMessages = [
+  "hmm... think metro stations 🚇",
+  "graduation year: 2030 👀",
+  "eight houses. EIGHT.",
+  "nope... think harder 😌",
+  "it was EVERYWHERE during covid 😩",
+  "strong opinions. very strong. 💚",
+  "really?? 😭",
+];
+
+let openCard = null;
+let sfCount = 0;
+
+const sfNotes = [
+  "honestly just happy you exist 🌻",
+  "your laugh is genuinely contagious",
+  "conversations with you never feel like small talk",
+  "I always feel more myself around you",
+  "you make the hard days a little easier just by picking up",
+  "the kind of friend people write songs about",
+  "your hugs actually fix things, scientifically",
+  "I hope you know how much you're appreciated",
+  "you're the reason calls go from 5 minutes to 3 hours",
+  "somehow always says the right thing",
+  "green really does look amazing on you though",
+  "I'm planting this one just because I miss you",
+];
+
+function toggleCard(i) {
+  const body = document.getElementById('body-' + i);
+  if (openCard !== null && openCard !== i) {
+    document.getElementById('body-' + openCard).classList.remove('open');
+  }
+  body.classList.toggle('open');
+  openCard = body.classList.contains('open') ? i : null;
+}
+
+function check(i) {
+  const inp = document.getElementById('inp-' + i);
+  const val = inp.value.trim().toLowerCase();
+  const hint = document.getElementById('hint-' + i);
+
+  if (!val) return;
+
+  if (answers[i] && answers[i].includes(val)) {
+    solveCard(i);
+    hint.textContent = '';
+    hint.style.color = '';
+  } else {
+    inp.classList.add('wrong');
+    inp.classList.remove('right');
+    hint.textContent = wrongMessages[i];
+    hint.style.color = '#c05050';
+    setTimeout(() => inp.classList.remove('wrong'), 500);
+  }
+}
+
+function solveCard(i) {
+  const inp = document.getElementById('inp-' + i);
+  const hint = document.getElementById('hint-' + i);
+  inp.classList.remove('wrong');
+  inp.classList.add('right');
+  inp.disabled = true;
+  document.querySelector(`#card-${i} .puzzle-submit`).disabled = true;
+  document.getElementById('reveal-' + i).classList.add('show');
+  document.getElementById('card-' + i).classList.add('solved');
+  document.querySelector(`#card-${i} .puzzle-lock`).textContent = '✅';
+  hint.textContent = '';
+
+  if (i === 6) {
+    setTimeout(() => {
+      document.getElementById('rick-overlay').classList.add('show');
+      window.open('https://www.youtube.com/watch?v=dQw4w9WgXcQ', '_blank');
+    }, 800);
+  }
+}
+
+function closeRick() {
+  document.getElementById('rick-overlay').classList.remove('show');
+}
+
+function plantSunflower(e) {
+  const garden = document.getElementById('garden');
+  const rect = garden.getBoundingClientRect();
+  const x = e.clientX - rect.left;
+  const y = e.clientY - rect.top;
+  if (y > rect.height - 66 || y < 10) return;
+
+  const stemH = 50 + Math.random() * 70;
+  const headSize = 32 + Math.random() * 18;
+  const note = sfNotes[sfCount % sfNotes.length];
+
+  const el = document.createElement('div');
+  el.className = 'sunflower';
+  el.style.left = (x - headSize/2 - 2) + 'px';
+  el.innerHTML = buildSunflower(stemH, headSize, note);
+  garden.appendChild(el);
+
+  sfCount++;
+  document.getElementById('garden-counter').innerHTML =
+    `Your garden has <strong>${sfCount}</strong> sunflower${sfCount===1?'':'s'} 🌻`;
+
+  if (sfCount === 1) document.getElementById('plant-hint').style.display = 'none';
+
+  // floaty
+  const f = document.createElement('div');
+  f.className = 'floaty';
+  f.textContent = '🌻';
+  f.style.left = (e.clientX - 12) + 'px';
+  f.style.top = (e.clientY - 12) + 'px';
+  document.body.appendChild(f);
+  setTimeout(() => f.remove(), 1300);
+}
+
+function buildSunflower(stemH, size, note) {
+  const numPetals = 14;
+  let petals = '';
+  for (let i = 0; i < numPetals; i++) {
+    const angle = (360 / numPetals) * i;
+    const pw = size * 0.28;
+    const ph = size * 0.46;
+    const dist = size * 0.28;
+    petals += `<div class="sf-petal" style="
+      width:${pw}px; height:${ph}px;
+      top:${size/2 - dist - ph}px;
+      left:${size/2 - pw/2}px;
+      transform: rotate(${angle}deg);
+      transform-origin: 50% ${ph + dist}px;
+    "></div>`;
+  }
+  const centerSize = size * 0.46;
+  return `
+    <div class="sf-note">${note}</div>
+    <div class="sf-head" style="width:${size}px;height:${size}px;">
+      ${petals}
+      <div class="sf-center" style="width:${centerSize}px;height:${centerSize}px;"></div>
+    </div>
+    <div class="sf-stem" style="height:${stemH}px;">
+      <div class="sf-leaf sf-leaf-l"></div>
+      <div class="sf-leaf sf-leaf-r"></div>
+    </div>
+  `;
+}
+</script>
+</body>
+</html>
